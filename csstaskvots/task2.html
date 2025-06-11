@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radar Sweep Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: whitesmoke;
+            margin: 0;
+        }
+
+        .radar-container {
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background-color: gray;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .radar-screen {
+            width: 90%;
+            height: 90%;
+            background-color: #000;
+            border-radius: 50%;
+            position: relative;
+            border: 2px solid whitesmoke;
+            box-sizing: border-box;
+        }
+
+        .radar-circle {
+            position: absolute;
+            border: 3px solid white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+            box-sizing: border-box;
+        }
+
+        .circle-1 {
+            width: 90%;
+            height: 90%;
+        }
+
+        .circle-2 {
+            width: 75%;
+            height: 75%;
+        }
+
+        .circle-3 {
+            width: 60%;
+            height: 60%;
+        }
+
+        .circle-4 {
+            width: 45%;
+            height: 45%;
+        }
+
+        .circle-5 {
+            width: 30%;
+            height: 30%;
+        }
+
+        .circle-6 {
+            width: 15%;
+            height: 15%;
+        }
+
+        .circle-7 {
+            width: 1%;
+            height: 1%;
+            background-color: white;
+            border: none;
+        }
+
+        .crosshair {
+            position: absolute;
+            background-color: limegreen;
+            opacity: 0.8;
+        }
+
+        .crosshair-h {
+            width: 100%;
+            height: 1px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .crosshair-v {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .crosshair-hv {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .crosshair-vh {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%) rotate(-45deg);
+        }
+
+        .sweep {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: 50% 50%;
+            border-radius: 50%;
+            background: conic-gradient(transparent 0deg,
+                    transparent 220deg,
+                    rgba(0, 255, 0, 0.1) 220deg,
+                    rgba(0, 255, 0, 0.5) 230deg,
+                    rgba(0, 255, 0, 0.5) 240deg,
+                    rgba(0, 255, 0, 0.5) 250deg,
+                    rgba(255, 255, 255, 1) 260deg,
+                    transparent 260deg,
+                    transparent 360deg);
+            animation: radarSweep 3s linear infinite;
+        }
+
+        @keyframes radarSweep {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="radar-container">
+        <div class="radar-screen">
+
+            <div class="radar-circle circle-1"></div>
+            <div class="radar-circle circle-2"></div>
+            <div class="radar-circle circle-3"></div>
+            <div class="radar-circle circle-4"></div>
+            <div class="radar-circle circle-5"></div>
+            <div class="radar-circle circle-6"></div>
+            <div class="radar-circle circle-7"></div>
+
+            <div class="crosshair crosshair-h"></div>
+            <div class="crosshair crosshair-v"></div>
+            <div class="crosshair crosshair-hv"></div>
+            <div class="crosshair crosshair-vh"></div>
+
+            <div class="sweep"></div>
+        </div>
+    </div>
+</body>
+
+</html>
